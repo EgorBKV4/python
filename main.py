@@ -1,12 +1,10 @@
 import time
 
-import pyautogui
 
 from selenium import webdriver
-from selenium.webdriver import ActionChains, Keys
+from selenium.webdriver import ActionChains
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.common import actions
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 
@@ -30,7 +28,7 @@ element = driver.find_element(By.XPATH, "//input[@id='input_username']")
 element.send_keys("ya_karal")
 element = driver.find_element(By.XPATH, "//input[@id='input_password']")
 element.send_keys("gj[eq,kzlbyf")
-element = driver.find_element(By.XPATH, "//button")
+element = driver.find_element(By.XPATH, "//button[@type='submit'][contains(@class,'login')]")
 element.click()
 time.sleep(3)
 
@@ -49,11 +47,11 @@ time.sleep(5)
 
 driver.get("https://store.steampowered.com/")
 time.sleep(2)
-driver.find_element(By.XPATH, "//div[@class='home_cluster_ctn home_ctn']/div/div/div[@class='arrow right']").click()
+driver.find_element(By.XPATH, "//div[@class='arrow right'][@data-usability='1']").click()
 time.sleep(2)
-driver.find_element(By.XPATH, "//div[@class='home_cluster_ctn home_ctn']/div/div/div[@class='arrow right']").click()
+driver.find_element(By.XPATH, "//div[@class='arrow right'][@data-usability='1']").click()
 time.sleep(2)
-driver.find_element(By.XPATH, "//div[@class='home_cluster_ctn home_ctn']/div/div/div[@class='arrow right']").click()
+driver.find_element(By.XPATH, "//div[@class='arrow right'][@data-usability='1']").click()
 time.sleep(5)
 
 driver.close()
